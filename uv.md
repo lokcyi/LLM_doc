@@ -1,6 +1,7 @@
 ## pipenv
 
 > python -m site --user-site
+> set path =>C:\Users\<user_name>\AppData\Roaming\Python\Python311\Scripts
 
 ## pyenv
 
