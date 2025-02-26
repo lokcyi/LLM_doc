@@ -24,6 +24,19 @@ OpenAI的Deep Research，仍需要每月200美元的Pro版訂閱方案才能使�
 ## Perplexity的Deep Research
 免費提供，免費用戶每天可以五次免費查詢，每月支付20美元的專業版訂戶可享有每天500次查詢，更快的處理速度。
 
+## Google Gemini(Google Gemini 2.0 Flash, Flash-Lite and Pro 介紹)
+Google 在本次 Gemini 系列，推出了以下三種不同型態的模型：
+
+Gemini 2.0 Flash：具有低延遲和更強的性能，旨在增強 AI Agent 體驗。
+Gemini 2.0 Flash-Lite：最具成本效益的版本，現已提供公開預覽版。
+Gemini 2.0 Pro：針對程式碼和複雜提示的最佳模型的實驗性更新，現已推出。
+定價 https://medium.com/@simon3458/google-gemini-2-0-flash-flash-lite-and-pro-intro-5f5584a3e460
+Gemini 定價如下：
+
+
+對比於 GPT 模型來說，整體性價比還是非常的好：
+
+
 
 ## DeepSeek-r1
 
@@ -44,4 +57,6 @@ Claude Code： 直接在終端理解並操作程式碼庫，能一次完成需 4
 DeepSeek R1 在數學解題能力（97.3%）方面最強，同時在其他任務上也有不錯的表現。
 
 在推理模型的最佳化過程中，Anthropic 減少了對數學和電腦科學競賽問題的側重，更專注於滿足企業對 LLM 的實際應用需求。
+
+
 
