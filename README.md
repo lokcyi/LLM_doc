@@ -30,6 +30,12 @@ Google 在本次 Gemini 系列，推出了以下三種不同型態的模型：
 Gemini 2.0 Flash：具有低延遲和更強的性能，旨在增強 AI Agent 體驗。
 Gemini 2.0 Flash-Lite：最具成本效益的版本，現已提供公開預覽版。
 Gemini 2.0 Pro：針對程式碼和複雜提示的最佳模型的實驗性更新，現已推出。
+
+2025/01/22 宣布釋出具推理能力的Gemini 2.0 Flash Thinking AI模型最新實驗版（Experimental），不但數學和科學推理效能上升，也會撰寫和執行程式。
+
+最新釋出的模型為Gemini 2.0 Flash Thinking Experimental 01-21（Exp 01-21），以去年12月公布的Gemini 2.0 Flash Thinking為基礎開發，為挑戰OpenAI的o3模型。名稱中的Thinking代表相對於Gemini Flash，這家族模型具有解決複雜問題的推理能力，以及新穎的思考能力，它對用戶詢問會先經過「思考」再做出回應。
+
+
 定價 https://medium.com/@simon3458/google-gemini-2-0-flash-flash-lite-and-pro-intro-5f5584a3e460
 Gemini 定價如下：
 
