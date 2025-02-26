@@ -23,3 +23,5 @@ OpenAI的GPT-4o (3.3%)
 OpenAI的Deep Research，仍需要每月200美元的Pro版訂閱方案才能使用，即使OpenAI表示有計劃擴展到其他訂閱方案； 
 ## Perplexity的Deep Research
 免費提供，免費用戶每天可以五次免費查詢，每月支付20美元的專業版訂戶可享有每天500次查詢，更快的處理速度。
+
+## xAI Grok-3
