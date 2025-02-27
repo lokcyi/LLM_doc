@@ -1,23 +1,22 @@
 
 https://ikala.ai/zh-tw/blog/ai-trend/deepseek-llm-comparison/  
-Reasoning   
-Model : ChatGPT o1,o3,DeepSeek,Gemini Flash  
+# Reasoning Model : ChatGPT o1,o3,DeepSeek,Gemini Flash  
 
-DeepSeek 最新兩大 LLM R1、V3 應對不同需求  
-DeepSeek-R1：DeepSeek:   
+## DeepSeek 最新兩大 LLM R1、V3 應對不同需求  
+- DeepSeek-R1：DeepSeek:   
 於 2025 年 1 月發布了最新的開源 LLM DeepSeek-R1，是一款專為邏輯推理、數學推理和即時問題解決而設計的模型，在訓練階段大量使用強化學習(Reinforcement learning)技術，性能接近於 OpenAI 開發的 GPT-o1 模型  
 
-DeepSeek-V3：   
+- DeepSeek-V3：   
 2024 年 12 月DeepSeek-V3 發布，是一款具備優秀的文本生成、多語言支持和對話理解能力的 LLM，其背後採用專家混合（MoE）架構，擁有 6710 億個參數，但實際運用僅啟動 370 億個參數，實現了高效能與資源利用的平衡。目前可以在DeepSeek 網站與最新版 V3 模型進行對話，API 服務也已同步更新。  
 
-OpenAI 最新模型 o3-mini 推出、GPT-4o 提供多模態應用需求  
-GPT-o3-mini：  
+## OpenAI 最新模型 o3-mini 推出、GPT-4o 提供多模態應用需求  
+- GPT-o3-mini：  
 OpenAI 正面迎戰 DeepSeek AI 開源模型，在 2025 年 1 月底推出小型推理模型o3-mini，專注於強化推理能力，特別適用於數學、程式設計和科學，需要解決逐步邏輯推理的問題。同時，o3-mini 引入了自適應思考時間的特性，允許用戶根據任務的複雜性調整模型的推理力度，對於簡單的問題，用戶可以選擇較低的推理力度以獲得更快的響應；而對於複雜的任務，則可以選擇較高的推理力度，以達到接近 o3 的性能，但成本更低。  
 
-GPT-4o：  
+- GPT-4o：  
 OpenAI 在 2024 年 5 月推出 GPT-4o 多模態 LLM，能夠處理文本、音訊和圖像輸入，並生成相應的輸出。 此外，與 GPT-4 Turbo 相比，GPT-4o 在生成文本速度上提高了兩倍，成本降低了 50%，並在非英語語言和視覺任務中表現出色，使其更適用於即時語音翻譯、互動式學習、圖像分析等多種應用場景。  
 
-Google 推 Gemini 2.0 系列模型，朝向 AI Agent 需求  
+## Google 推 Gemini 2.0 系列模型，朝向 AI Agent 需求  
 Google 於 2025 年 2 月正式發布 Gemini 2.0 系列 LLM，涵蓋 Pro、Flash 及 Flash-Lite 三個版本。與 Gemini 1.5 相比，Gemini 2.0 在多模態處理能力、推理與理解能力、自主工具使用能力、上下文處理能力以及邁向代理型 AI 等方面均有顯著提升。  
 
 - Gemini 2.0 Flash：  
