@@ -1,6 +1,12 @@
 
 https://ikala.ai/zh-tw/blog/ai-trend/deepseek-llm-comparison/  
 # Reasoning Model : ChatGPT o1,o3,DeepSeek,Gemini Flash  
+推理模型是什麼？思維鏈是什麼？  
+推理模型（Reasoning Models）是 OpenAI 為了解決需要多步推理、深度分析的問題而專門開發的 AI 模型。 
+
+推理模型的核心運作原理是「思維鏈」（Chain of Thought）。簡單來說，這些模型會在回答問題之前進行一系列內部推理步驟，進行多層次的思考和計算，然後再給出結論。這樣的機制使推理模型能夠應對較為複雜、模糊的資訊，依據較長的推理過程，提供更精準的答案。  
+
+根據OpenAI Sam Altman 的說法，GPT-5 將會整合 GPT 系列與推理模型，並自動選擇最適合的模型進行任務處理。這樣一來，企業和開發者不再需要手動選擇模型，系統會根據實際情況自動調整   
 
 ## DeepSeek 最新兩大 LLM R1、V3 應對不同需求  
 - DeepSeek-R1：DeepSeek:   
