@@ -1,3 +1,5 @@
+
+https://ikala.ai/zh-tw/blog/ai-trend/deepseek-llm-comparison/  
 Reasoning   
 Model : ChatGPT o1,o3,DeepSeek,Gemini Flash  
 
