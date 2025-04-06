@@ -62,11 +62,13 @@ Llama 4 Behemoth (预览，训练中)：
 
 角色：作为 Maverick 模型进行代码蒸馏时的教师模型
 ![image](https://github.com/user-attachments/assets/28eb0a4d-377e-4a01-9964-ecb23603cfcc)
+![image](https://github.com/user-attachments/assets/7411e4ee-64a2-448a-8ac2-5cf93530fb6b)
+![image](https://github.com/user-attachments/assets/bc4b2b3c-f861-4221-a0d8-f9690a98d4c6)
 
 
 
 
-02技术亮点解读
+2. 技术亮点解读
 
 原生多模态：所有模型都采用早期融合（early fusion）策略，将文本、图像、视频 Token 无缝整合到统一的模型骨干中
 
@@ -87,22 +89,26 @@ Llama 4 Behemoth (预览，训练中)：
 
 03超过 DeepSeek 了吗？
 使用最高参数模型基准——Llama 4 Behemoth——并将其与 DeepSeek R1 初始发布时的 R1-32B 和 OpenAI o1 模型图表进行对比，以下是 Llama 4 Behemoth 的表现情况：
+![image](https://github.com/user-attachments/assets/53238f27-da60-4a73-ae03-f3e6bfae9130)
 
 
-我们能得出什么结论？
+# 我们能得出什么结论？
 
-MATH-500：Llama 4 Behemoth 略微落后于 DeepSeek R1 和 OpenAI o1。
+- MATH-500：Llama 4 Behemoth 略微落后于 DeepSeek R1 和 OpenAI o1。
 
-GPQA Diamond：Behemoth 领先于 DeepSeek R1，但落后于 OpenAI o1。
+- GPQA Diamond：Behemoth 领先于 DeepSeek R1，但落后于 OpenAI o1。
 
-MMLU：Behemoth虽落后于两者，但仍优于 Gemini 2.0 Pro 和 GPT-4.5。
+- MMLU：Behemoth虽落后于两者，但仍优于 Gemini 2.0 Pro 和 GPT-4.5。
 
-要点：尽管 DeepSeek R1 和 OpenAI o1 在几项指标上略胜 Behemoth 一筹，Llama 4 Behemoth 仍极具竞争力，在其类别的推理排行榜上表现位居或接近榜首。
+# 要点：尽管 DeepSeek R1 和 OpenAI o1 在几项指标上略胜 Behemoth 一筹，Llama 4 Behemoth 仍极具竞争力，在其类别的推理排行榜上表现位居或接近榜首。
 
-04大佬评价一个遗憾 (前kaggle总裁，fast AI 创始人Jeremy Howard)：虽然感谢开源，但 Jeremy Howard 也表达了失望。Llama 4 Scout 和 Maverick 都是大型 MoE 模型，即使量化后也无法在消费级 GPU 上运行，这对开源社区的可及性来说是个不小的损失。
+4. 大佬评价一个遗憾 (前kaggle总裁，fast AI 创始人Jeremy Howard)：虽然感谢开源，但 Jeremy Howard 也表达了失望。
+**Llama 4 Scout 和 Maverick 都是大型 MoE 模型，即使量化后也无法在消费级 GPU 上运行，这对开源社区的可及性来说是个不小的损失。**
+![image](https://github.com/user-attachments/assets/81ffe485-6c74-4bd3-92e6-e33eb355250c)
 
 
-Jim Fan（英伟达高级研究经理）：
+Jim Fan（英伟达高级研究经理）：  
+![image](https://github.com/user-attachments/assets/229d73eb-7ee9-40ea-bc3f-58108c49d73e)
 
 
 部署便利性优先：Jim Fan 认为，对于开源模型，特别是 MoE 架构，易于部署正变得比单纯追求模型尺寸更重要。Meta 强调 Llama 4 Scout 能在单张 H100 上运行，这与 Llama-3 401B（虽然强大但采用率较低）形成对比，说明 MoE 是一个更符合当前开源策略的方向
@@ -117,13 +123,12 @@ Behemoth 的训练细节与数据挑战： Llama 4 Behemoth 的庞大规模（FP
 
 实现千万级上下文窗口的技术手段看起来“相当简单”：
 
-1.去除部分位置编码：在某些注意力层（特别是全局层）不使用位置编码，借鉴了NoPE (No Positional Embedding)论文的思想
+1. 去除部分位置编码：在某些注意力层（特别是全局层）不使用位置编码，借鉴了NoPE (No Positional Embedding)论文的思想
 
-2.调整 Softmax 注意力：根据上下文的长度来调整 Softmax 注意力计算
+2. 调整 Softmax 注意力：根据上下文的长度来调整 Softmax 注意力计算
 
 
-05
-这次Llama 4的推理模型还不见踪影，这多少有点说不过去，大家觉得呢？毕竟Meta也是妥妥的大厂啊！不过Meta 表示这只是开始，后续还有更多模型，团队正在全力开发中，特别提到了Llama 4 Reasoning模型
+5. 这次Llama 4的推理模型还不见踪影，这多少有点说不过去，大家觉得呢？毕竟Meta也是妥妥的大厂啊！不过Meta 表示这只是开始，后续还有更多模型，团队正在全力开发中，特别提到了Llama 4 Reasoning模型
 
 另外相比于DeepSeek的MIT开源方式，Llama 4 的新许可证有几个限制：
 
