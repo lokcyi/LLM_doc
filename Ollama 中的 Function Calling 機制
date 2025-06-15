@@ -1,0 +1,87 @@
+1. Ollama 中的 Function Calling 機制
+在 Ollama 中，function calling（或稱 tool calling）是一種讓大型語言模型（LLM）與外部工具或函數互動的機制。這種功能允許模型在生成回應時，根據用戶的輸入選擇並調用預定義的函數來執行特定任務（例如查詢天氣、執行計算、訪問 API 等）。具體來說：
+
+誰負責執行函數？ 在 Ollama 的 function calling 流程中，語言模型本身並不直接執行函數。模型的角色是分析用戶的輸入，選擇適當的函數（如果需要的話），並生成一個 JSON 格式的回應，包含函數名稱和所需的參數。實際執行函數的任務由客戶端的程式碼（例如你用 Python 編寫的腳本）負責。
+流程概述：
+客戶端定義函數：你需要在客戶端程式碼中定義可用的函數（工具），並將其描述（包括名稱、參數和功能）提供給 Ollama。
+模型選擇函數：當用戶輸入查詢時，Ollama 的模型（例如 Llama 3.1 或 Llama 3.2）會檢查是否需要調用某個函數。如果需要，它會返回一個 JSON 物件，包含要調用的函數名稱和參數。
+客戶端執行函數：客戶端程式碼接收模型的回應，解析 JSON，調用對應的函數，並將結果返回給模型（如果需要進一步處理）。
+模型生成最終回應：模型可能會根據函數的執行結果生成最終的回應。
+2. 誰執行了函數（Who Did the Running Function）？
+在你的問題中，“who did the running function” 可以理解為“誰實際執行了函數”。答案是：
+
+客戶端程式碼負責執行函數。Ollama 的模型只負責決定是否需要調用函數以及傳遞哪些參數，但實際的函數執行（例如發送 API 請求、進行計算、讀取文件等）是由你編寫的客戶端程式碼完成的。
+例如，在 Python 中，你可能會使用 ollama 庫與模型交互，並在程式碼中定義一個函數（例如 get_current_weather 或 add_two_numbers）。當模型決定調用某個函數時，你的程式碼會負責執行它並返回結果。
+3. 範例：Ollama 客戶端如何調用函數
+以下是一個簡單的 Python 範例，展示如何在 Ollama 上實現 function calling，並說明誰執行了函數：
+
+python
+
+複製
+import ollama
+
+# 定義一個簡單的函數作為工具
+def add_two_numbers(a: int, b: int) -> int:
+    """Add two numbers and return the result."""
+    return a + b
+
+# 設置可用的函數映射
+available_functions = {
+    'add_two_numbers': add_two_numbers
+}
+
+# 與 Ollama 模型進行交互
+response = ollama.chat(
+    model='llama3.1',  # 使用支援 tool calling 的模型
+    messages=[{'role': 'user', 'content': 'What is 10 + 10?'}],
+    tools=[
+        {
+            'type': 'function',
+            'function': {
+                'name': 'add_two_numbers',
+                'description': 'Add two numbers',
+                'parameters': {
+                    'type': 'object',
+                    'required': ['a', 'b'],
+                    'properties': {
+                        'a': {'type': 'integer', 'description': 'The first integer number'},
+                        'b': {'type': 'integer', 'description': 'The second integer number'}
+                    }
+                }
+            }
+        }
+    ]
+)
+
+# 檢查模型是否選擇了函數
+if response['message'].get('tool_calls'):
+    for tool in response['message']['tool_calls']:
+        function_to_call = available_functions.get(tool['function']['name'])
+        if function_to_call:
+            # 客戶端執行函數
+            result = function_to_call(**tool['function']['arguments'])
+            print(f"Function output: {result}")
+        else:
+            print(f"Function not found: {tool['function']['name']}")
+else:
+    print("The model didn't use the function.")
+說明：
+
+在這個範例中，當用戶輸入“What is 10 + 10?”時，模型（Llama 3.1）會識別需要調用 add_two_numbers 函數，並返回一個 JSON 物件，包含函數名稱和參數（例如 {"a": 10, "b": 10}）。
+客戶端程式碼解析這個 JSON，調用 add_two_numbers(10, 10)，並由 Python 運行時環境 執行該函數，得到結果 20。
+因此，執行函數的是你的 Python 程式碼，而不是 Ollama 或模型本身。
+4. 支援 Function Calling 的模型
+並非所有 Ollama 支援的模型都支援 function calling。根據官方文件，只有特定模型（例如 Llama 3.1、Llama 3.2 或其他經過微調的模型）支援此功能。你可以在 Ollama 的模型庫中檢查哪些模型標有“tools”標籤，表示它們支援 tool calling。
+
+5. 常見問題與注意事項
+函數執行失敗：如果函數執行失敗（例如 API 無法訪問或參數錯誤），你需要在客戶端程式碼中處理錯誤，並可能將錯誤訊息回傳給模型。
+模型選擇錯誤的函數：某些模型（特別是較小的模型）可能無法正確選擇函數。使用像 Llama 3.1 或 Llama 3.2 這樣經過微調的模型可以提高準確性。
+性能問題：函數調用會增加延遲，因為需要執行外部操作（例如 API 請求）。確保你的函數高效執行。
+安全性：確保函數的安全性，避免執行不受信任的代碼或暴露敏感數據。
+6. 結論
+在 Ollama 的 function calling 流程中：
+
+模型（如 Llama 3.1）負責決定是否需要調用函數以及傳遞哪些參數。
+客戶端程式碼（如 Python 腳本）負責實際執行函數並處理結果。
+因此，“who did the running function”的答案是：你的客戶端程式碼執行了函數，而模型僅提供執行指令。
+如果你有具體的程式碼或場景需要進一步分析，請提供更多細節，我可以幫你 debug 或提供更詳細的實現方式！
